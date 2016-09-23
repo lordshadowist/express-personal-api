@@ -1,3 +1,13 @@
+var me = 
+{
+	name: "Bill Cheng",
+	githubLink: "https://github.com/lordshadowist",
+	githubProfileImage: "https://avatars1.githubusercontent.com/u/10284294?v=3&s=466",
+	personalSiteLink: "https://pure-tundra-89550.herokuapp.com/api/profile",
+	currentCity: "Fremont",
+	pets: [{name: "Bill", type: "Fish", breed: "guppy", status: "Deceased"}, {name: "Claw", type: "Crab", breed: "unknown", status: "Deceased"}, {name: "BBQ", type: "Bird", breed: "Parakeet", status: "Alive"}]
+};
+
 // require express and other modules
 var express = require('express'),
     app = express();
@@ -47,15 +57,20 @@ app.get('/api', function api_index(req, res) {
   res.json({
     woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentationUrl: "https://github.com/lordshadowist/express_self_api/README.md", // CHANGE ME
+    baseUrl: "http://pure-tundra-89550.herokuapp.com", 
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/shows", description: "E.g. Shows I'm watching."} // CHANGE ME
+      {method: "POST", path: "/api/shows", description: "E.g. Shows I'm watching."} // 
     ]
   })
 });
+
+app.get('/api/profile', function me_show(req, res)
+{
+	res.json(me);
+})
 
 /**********
  * SERVER *
