@@ -100,17 +100,29 @@ app.get('/api/profile', function me_show(req, res)
 	res.json(me);
 })
 
+// TEMP
 app.get('/api/shows', function index(req, res) {
   
   res.json({"shows": tempShows});
 });
 
-// app.post('/api/todos', function create(req, res) {
-//    var newTodo = req.body;
-//    newTodo._id = todos[todos.length - 1]._id + 1;
-//    todos.push(newTodo);
-//    res.json(newTodo);
-// });
+app.post('/api/shows', function create(req, res) {
+   var show = req.body;
+   newTodo._id = todos[todos.length - 1]._id + 1;
+   todos.push(newTodo);
+   res.json(newTodo);
+});
+
+app.get('/api/shows/:id', function show(req, res) {
+
+  for(var i = 0; i < tempShows.length; i++)
+  {
+    if(tempShows[i]._id == req.params.id)
+    {
+      res.json(tempShows[i]);
+    }
+  }
+});
 
 /**********
  * SERVER *
