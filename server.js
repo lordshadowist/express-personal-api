@@ -8,6 +8,31 @@ var me =
 	pets: [{name: "Bill", type: "Fish", breed: "guppy", status: "Deceased"}, {name: "Claw", type: "Crab", breed: "unknown", status: "Deceased"}, {name: "BBQ", type: "Bird", breed: "Parakeet", status: "Alive"}]
 };
 
+var tempShows = //temp REMOVE l8r
+[
+	{
+		title: "Game of Thrones",
+		station: "HBO",
+		season: 6, // season am on right now
+		description: "Multiple families fight to control the land of Westeros",
+		status: "Watching",
+	},
+	{
+		title: "How I Met Your Mother",
+		station: "CBS",
+		season: 9, // season am on right now
+		description: "Ted Mosby tells the story of how he found the perfect woman",
+		status: "Finished",
+	},
+	{
+		title: "Riverdale",
+		station: "CW",
+		season: 1, // season am on right now
+		description: "Tv Show of Archie Comics",
+		status: "Upcoming",
+	}
+]
+
 // require express and other modules
 var express = require('express'),
     app = express();
@@ -71,6 +96,11 @@ app.get('/api/profile', function me_show(req, res)
 {
 	res.json(me);
 })
+
+app.get('/api/shows', function index(req, res) {
+  
+  res.json(me);
+});
 
 /**********
  * SERVER *
