@@ -11,7 +11,7 @@ var me =
 var tempShows = //temp REMOVE l8r
 [
 	{
-		_id = 0,
+		_id:  0,
 		title: "Game of Thrones",
 		station: "HBO",
 		season: 6, // season am on right now
@@ -19,7 +19,7 @@ var tempShows = //temp REMOVE l8r
 		status: "Watching",
 	},
 	{
-		_id = 1,
+		_id: 1,
 		title: "How I Met Your Mother",
 		station: "CBS",
 		season: 9, // season am on right now
@@ -27,7 +27,7 @@ var tempShows = //temp REMOVE l8r
 		status: "Finished",
 	},
 	{
-		_id = 2,
+		_id: 2,
 		title: "Riverdale",
 		station: "CW",
 		season: 1, // season am on right now
