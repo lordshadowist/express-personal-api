@@ -99,7 +99,7 @@ app.get('/api/profile', function me_show(req, res)
 
 app.get('/api/shows', function index(req, res) {
   
-  res.json(me);
+  res.json({"shows": tempShows});
 });
 
 /**********
