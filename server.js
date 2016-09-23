@@ -11,6 +11,7 @@ var me =
 var tempShows = //temp REMOVE l8r
 [
 	{
+		_id = 0,
 		title: "Game of Thrones",
 		station: "HBO",
 		season: 6, // season am on right now
@@ -18,6 +19,7 @@ var tempShows = //temp REMOVE l8r
 		status: "Watching",
 	},
 	{
+		_id = 1,
 		title: "How I Met Your Mother",
 		station: "CBS",
 		season: 9, // season am on right now
@@ -25,6 +27,7 @@ var tempShows = //temp REMOVE l8r
 		status: "Finished",
 	},
 	{
+		_id = 2,
 		title: "Riverdale",
 		station: "CW",
 		season: 1, // season am on right now
@@ -100,6 +103,13 @@ app.get('/api/profile', function me_show(req, res)
 app.get('/api/shows', function index(req, res) {
   
   res.json({"shows": tempShows});
+});
+
+app.post('/api/todos', function create(req, res) {
+   var newTodo = req.body;
+   newTodo._id = todos[todos.length - 1]._id + 1;
+   todos.push(newTodo);
+   res.json(newTodo);
 });
 
 /**********
