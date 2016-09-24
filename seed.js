@@ -5,6 +5,7 @@ var db = require('./models');
 
 var bbt = new db.Show(
 {
+	_id: 0,
 	title: "The Big Bang Theory",
 	station: "CBS",
 	season: 10
