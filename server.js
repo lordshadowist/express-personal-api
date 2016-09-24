@@ -153,7 +153,7 @@ app.delete('/api/shows/:id', function destroy(req, res) {
 
 app.get('/api/showsx', function index(req, res)
 {
-	db.Show.find(function(err, shows)
+	db.Show.find({}, function(err, shows)
 	{
 		if(err)
 		{
