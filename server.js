@@ -151,6 +151,8 @@ app.delete('/api/shows/:id', function destroy(req, res) {
    res.json("Success");
 });
 
+//Experimental
+
 app.get('/api/showsx', function index(req, res)
 {
 	db.Show.find({}, function(err, shows)
@@ -161,6 +163,16 @@ app.get('/api/showsx', function index(req, res)
 		}
 		res.json(shows);
 	});
+});
+
+app.get('/api/showsx/:id', function (req, res) {
+  // find one book by its id
+  var showID = req.params.id;
+  // find book in db by id
+    db.Book.findOne({ _id: showID }, function(err, foundShow) {
+      if (err) { return console.log("show error: " + err);}
+      res.json(foundShow);
+    });
 });
 
 /**********
