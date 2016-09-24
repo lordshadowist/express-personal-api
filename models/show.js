@@ -5,7 +5,7 @@ var tvShowSchema = new Schema
 ({
 	title: String,
 	station: String,
-	season: Int, // season am on right now
+	season: Number, // season am on right now
 	description: String,
 	status: String,
 });

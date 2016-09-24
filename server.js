@@ -8,6 +8,8 @@ var me =
 	pets: [{name: "Bill", type: "Fish", breed: "guppy", status: "Deceased"}, {name: "Claw", type: "Crab", breed: "unknown", status: "Deceased"}, {name: "BBQ", type: "Bird", breed: "Parakeet", status: "Alive"}]
 };
 
+var db = require('./models');
+
 var tempShows = //temp REMOVE l8r
 [
 	{
@@ -122,6 +124,44 @@ app.get('/api/shows/:id', function show(req, res) {
       res.json(tempShows[i]);
     }
   }
+});
+
+app.put('/api/shows/:id', function update(req, res) 
+{
+   for(var i = 0; i < tempShows.length; i++)
+   {
+     if(tempShows[i]._id == req.params.id)
+     {
+       var todoID = tempShows[i]._id;
+       tempShows[i] = req.body;
+       tempShows[i]._id = todoID;
+       res.json(tempShows[i]);
+     }
+   }
+});
+
+app.delete('/api/shows/:id', function destroy(req, res) {
+  /* This endpoint will delete a single todo with the
+   * id specified in the route parameter (:id) and respond
+   * with success.
+   */
+   tempShows = tempShows.filter(function(task)
+   {
+      return task._id != req.params.id; 
+   });
+   res.json("Success");
+});
+
+app.get('/api/showsx', function index(req, res)
+{
+	db.Show.find(function(err, shows)
+	{
+		if(err)
+		{
+			return console.log("index error: " + err);
+		}
+		res.json(shows);
+	});
 });
 
 /**********
