@@ -8,7 +8,6 @@ var me =
 	pets: [{name: "Bill", type: "Fish", breed: "guppy", status: "Deceased"}, {name: "Claw", type: "Crab", breed: "unknown", status: "Deceased"}, {name: "BBQ", type: "Bird", breed: "Parakeet", status: "Alive"}]
 };
 
-var db = require('./models');
 
 var tempShows = //temp REMOVE l8r
 [
@@ -59,7 +58,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
