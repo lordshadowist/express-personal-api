@@ -168,6 +168,7 @@ app.get('/api/showsx', function index(req, res)
 app.get('/api/showsx/:id', function (req, res) {
   // find one book by its id
   var showID = req.params.id;
+  console.log(showID);
   // find book in db by id
     db.Book.findOne({ _id: showID }, function(err, foundShow) {
       if (err) { return console.log("show error: " + err);}
