@@ -3,13 +3,13 @@
 
 var db = require('./models');
 
-var newShow = {title: "The Big Bang Theory", season: 10};
+var newShows = [{title: "The Big Bang Theory", season: 10}];
 
-db.Show.create(newShow, function(err, show){
+db.Show.create(newShows, function(err, shows){
   if (err){
     return console.log("Error:", err);
   }
 
-  console.log("Created new show", show._id)
+  console.log("created", shows.length, "shows")
   process.exit(); // we're all done! Exit the program.
 });
