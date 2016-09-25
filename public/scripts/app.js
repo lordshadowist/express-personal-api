@@ -41,6 +41,19 @@ $(document).ready(function()
 	});
 });
 
+// helper function to render all posts to view
+// note: we empty and re-render the collection each time our post data changes
+function render () {
+  // empty existing posts from view
+  $showsList.empty();
+
+  // pass `allShows` into the template function
+  var showsHtml = template({ shows: allShows });
+
+  // append html to the view
+  $showsList.append(showsHtml);
+};
+
 function handleSuccess(json) 
 {
   allShows = json;
