@@ -5,16 +5,42 @@ body {
 }
 
 h1 {
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 
 h2
 {
 	color: red;
-	margin-top: 100px;
+	margin-top: 25px;
 	text-align: center;
 }
+
+.number
+{
+	width: 25% !important;
+}
+
+.last-in-line
+{
+	clear: right;
+}
+
+.form-group
+{
+	margin-bottom: 10px !important;
+}
+
+.description
+{
+	width: 150% !important;
+}
+
+.submit
+{
+	display: block !important;
+}
+
 
 
 
