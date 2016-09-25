@@ -116,8 +116,9 @@ app.post('/api/shows', function create(req, res)
   newShow.save(function(err, savedShow) 
   {
     res.json(savedShow);
+    console.log(savedShow);
   });
-  console.log(newShow);
+
 });
 
 // update book
