@@ -115,8 +115,8 @@ app.post('/api/shows', function create(req, res)
   // save new todo in db
   newShow.save(function(err, savedShow) 
   {
+  	if (err) { return console.log("show error: " + err);}
     res.json(savedShow);
-    console.log(savedShow);
   });
 
 });
