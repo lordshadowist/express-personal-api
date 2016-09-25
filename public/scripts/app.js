@@ -4,7 +4,7 @@ var $showsList;
 var allShows = [];
 $(document).ready(function()
 {
-	$showsList = $('#showTarget');
+	$showsList = $('#ShowsTarget');
 
 	// compile handlebars template
 	var source = $('#shows-template').html();
