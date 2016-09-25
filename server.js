@@ -111,7 +111,8 @@ app.post('/api/shows', function create(req, res)
   console.log('Shows create', req.body);
   var newShow = new db.Show(req.body);
   // save new todo in db
-    newShow.save(function(err, savedShow) {
+    newShow.save(function(err, savedShow) 
+    {
       res.json(savedShow);
     });
 });

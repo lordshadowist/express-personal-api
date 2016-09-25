@@ -71,8 +71,9 @@ function newShowSuccess(json) {
   render();
 }
 
-function newShowError() {
+function newShowError(err) {
   console.log('newshow error!');
+  console.log(err);
 }
 
 function deleteShowSuccess(json) {
