@@ -22,7 +22,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+          <h1>List of Shows I'm Watching</h1>
           <form class="form-inline" id="newShowForm">
             <div class="form-group">
               <label for="title">Title</label>
@@ -34,10 +34,43 @@
             </div>
             <div class="form-group last-in-line">
               <label for="season">Season</label>
-              <input type="number" class="number" name="season">
+              <input type="number" class="form-control number" name="season">
             </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class = "form-control" name="description" rows="1" cols="45" placeholder="Brief Description of the TV Show"></textarea>
+            </div>
+            <div class="form-group last-in-line">
+              <label for="status">Status</label>
+              <select name="status" class="form-control">
+                <option value="Watching">Watching</option>
+                <option value="Catching Up">Catching Up</option>
+                <option value="Upcoming">Upcoming</option>
+                <option value="Finished">Finished</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-default submit">New Show</button>
           </form>
-          <h4><a href="/api">Read My API Documentation</a></h4>
+          <div id="ShowsTarget">
+          
+            <!-- handlebars template -->
+            <script id="shows-template" type="text/x-handlebars-template">
+              {{#each shows}}
+                <p>
+                  <b>{{title}}</b>
+                  <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button> <br>
+                  Station: {{station}} <br>
+                  Season: {{season}} <br>
+                  Status: {{status}}<br>
+                </p>
+                <p>
+                  {{description}}
+                </p>
+              {{/each}}
+              
+            </script>
+          </div>
+          <h5><a href="/api">Read My API Documentation</a></h4>
         </div>
       </div>
     </div>
