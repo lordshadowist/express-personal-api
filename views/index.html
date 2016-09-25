@@ -56,6 +56,7 @@
             <!-- handlebars template -->
             <script id="shows-template" type="text/x-handlebars-template">
               {{#each shows}}
+              <hr>
                 <p>
                   <b>{{title}}</b>
                   <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button> <br>
@@ -67,7 +68,6 @@
                   {{description}}
                 </p>
               {{/each}}
-              
             </script>
           </div>
           <h5><a href="/api">Read My API Documentation</a></h4>
