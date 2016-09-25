@@ -9,33 +9,7 @@ var me =
 };
 
 
-var tempShows = //temp REMOVE l8r
-[
-	{
-		_id:  0,
-		title: "Game of Thrones",
-		station: "HBO",
-		season: 6, // season am on right now
-		description: "Multiple families fight to control the land of Westeros",
-		status: "Watching",
-	},
-	{
-		_id: 1,
-		title: "How I Met Your Mother",
-		station: "CBS",
-		season: 9, // season am on right now
-		description: "Ted Mosby tells the story of how he found the perfect woman",
-		status: "Finished",
-	},
-	{
-		_id: 2,
-		title: "Riverdale",
-		station: "CW",
-		season: 1, // season am on right now
-		description: "Tv Show of Archie Comics",
-		status: "Upcoming",
-	}
-]
+
 
 // require express and other modules
 var express = require('express'),
@@ -106,58 +80,7 @@ app.get('/api/profile', function me_show(req, res)
 })
 
 // TEMP
-app.get('/api/shows', function index(req, res) {
-  
-  res.json({"shows": tempShows});
-});
-
-app.post('/api/shows', function create(req, res) {
-   var show = req.body;
-   newTodo._id = todos[todos.length - 1]._id + 1;
-   todos.push(newTodo);
-   res.json(newTodo);
-});
-
-app.get('/api/shows/:id', function show(req, res) {
-
-  for(var i = 0; i < tempShows.length; i++)
-  {
-    if(tempShows[i]._id == req.params.id)
-    {
-      res.json(tempShows[i]);
-    }
-  }
-});
-
-app.put('/api/shows/:id', function update(req, res) 
-{
-   for(var i = 0; i < tempShows.length; i++)
-   {
-     if(tempShows[i]._id == req.params.id)
-     {
-       var todoID = tempShows[i]._id;
-       tempShows[i] = req.body;
-       tempShows[i]._id = todoID;
-       res.json(tempShows[i]);
-     }
-   }
-});
-
-app.delete('/api/shows/:id', function destroy(req, res) {
-  /* This endpoint will delete a single todo with the
-   * id specified in the route parameter (:id) and respond
-   * with success.
-   */
-   tempShows = tempShows.filter(function(task)
-   {
-      return task._id != req.params.id; 
-   });
-   res.json("Success");
-});
-
-//Experimental
-
-app.get('/api/showsx', function index(req, res)
+app.get('/api/shows', function index(req, res)
 {
 	db.Show.find({}, function(err, shows)
 	{
@@ -169,7 +92,7 @@ app.get('/api/showsx', function index(req, res)
 	});
 });
 
-app.get('/api/showsx/:id', function show(req, res) 
+app.get('/api/shows/:id', function show(req, res) 
 {
   // find one showby its id
   var showID = req.params.id;
@@ -182,7 +105,7 @@ app.get('/api/showsx/:id', function show(req, res)
 });
 
 // create new book
-app.post('/api/showsx', function create(req, res) 
+app.post('/api/shows', function create(req, res) 
 {
   // create new show with form data (`req.body`)
   console.log('Shows create', req.body);
@@ -194,7 +117,7 @@ app.post('/api/showsx', function create(req, res)
 });
 
 // update book
-app.put('/api/showsx/:id', function update(req,res)
+app.put('/api/shows/:id', function update(req,res)
 {
 // get book id from url params (`req.params`)
   console.log('showss update', req.params);
@@ -212,7 +135,7 @@ app.put('/api/showsx/:id', function update(req,res)
 });
 
 // delete book
-app.delete('/api/showsx/:id', function destroy(req, res) 
+app.delete('/api/shows/:id', function destroy(req, res) 
 {
   // get book id from url params (`req.params`)
   console.log('shows delete', req.params);
@@ -223,6 +146,10 @@ app.delete('/api/showsx/:id', function destroy(req, res)
         res.json(deleteShow);
       });
 });
+
+//Experimental
+
+
 
 /**********
  * SERVER *
