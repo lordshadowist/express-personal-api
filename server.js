@@ -84,14 +84,18 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
+    woopsIForgotToDocumentAllMyEndpoints: false, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
     documentationUrl: "https://github.com/lordshadowist/express_self_api/README.md", // CHANGE ME
     baseUrl: "http://pure-tundra-89550.herokuapp.com", 
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/shows", description: "E.g. Shows I'm watching."} // 
+      {method: "GET", path: "/api/profile", description: "Data about me"}, //
+      {method: "GET", path: "/api/shows", description: "E.g. Shows I'm watching."},
+      {method: "GET", path: "/api/shows/:id", description: "Show with the id that I'm watching"},
+      {method: "POST", path: "/api/shows", description: "Post a new show I'm watching"},
+      {method: "PUT", path: "/api/shows/:id", description: "Update a show with the id that I'm watching"},
+      {method: "DELETE", path: "api/shows/:id", description: "Remove a show with that id that I'm no longer watching"}
     ]
   })
 });
@@ -165,15 +169,59 @@ app.get('/api/showsx', function index(req, res)
 	});
 });
 
-app.get('/api/showsx/:id', function (req, res) {
-  // find one book by its id
+app.get('/api/showsx/:id', function show(req, res) 
+{
+  // find one showby its id
   var showID = req.params.id;
   console.log(showID);
-  // find book in db by id
+  // find showin db by id
     db.Show.findOne({ _id: showID }, function(err, foundShow) {
       if (err) { return console.log("show error: " + err);}
       res.json(foundShow);
     });
+});
+
+// create new book
+app.post('/api/showsx', function create(req, res) 
+{
+  // create new show with form data (`req.body`)
+  console.log('Shows create', req.body);
+  var newShow = new db.Show(req.body);
+  // save new todo in db
+    newBook.save(function(err, savedShow) {
+      res.json(savedShow);
+    });
+});
+
+// update book
+app.put('/api/showsx/:id', function update(req,res)
+{
+// get book id from url params (`req.params`)
+  console.log('showss update', req.params);
+  var showID = req.params.id;
+  // find book in db by id
+      db.Show.findOne({ _id: bookID }, function(err, foundShow) 
+      {
+        foundShow = req.body;
+        foundShow.save(function(err, savedShow) 
+        {
+          res.json(savedShow);
+        });
+        
+      });
+});
+
+// delete book
+app.delete('/api/showsx/:id', function destroy(req, res) 
+{
+  // get book id from url params (`req.params`)
+  console.log('shows delete', req.params);
+  var showID = req.params.id;
+    // find book in db by id
+      db.Show.findOneAndRemove({ _id: bookID }, function(err, deleteShow) {
+        if (err) { return console.log("delete error: " + err);}
+        res.json(deleteShow);
+      });
 });
 
 /**********
