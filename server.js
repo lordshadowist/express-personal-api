@@ -110,6 +110,8 @@ app.post('/api/shows', function create(req, res)
   // create new show with form data (`req.body`)
   console.log('Shows create', req.body);
   var newShow = new db.Show(req.body);
+  var lastShow = db.Show.find({}, function(err, shows){return shows[shows.length - 1]});
+  newShow._id = lastShow._id + 1;
   // save new todo in db
     newShow.save(function(err, savedShow) 
     {
