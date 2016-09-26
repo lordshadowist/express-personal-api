@@ -5,7 +5,7 @@ var db = require('./models');
 
 var newShows = [
 	{
-		_id:  0,
+		//_id:  0,
 		title: "The Big Bang Theory",
 		station: "CBS",
 		season: 10, // season am on right now
@@ -13,7 +13,7 @@ var newShows = [
 		status: "Watching",
 	},
 	{
-		_id:  1,
+		//_id:  1,
 		title: "Game of Thrones",
 		station: "HBO",
 		season: 6, // season am on right now
@@ -21,7 +21,7 @@ var newShows = [
 		status: "Watching",
 	},
 	{
-		_id: 2,
+		//_id: 2,
 		title: "How I Met Your Mother",
 		station: "CBS",
 		season: 9, // season am on right now
@@ -29,7 +29,7 @@ var newShows = [
 		status: "Finished",
 	},
 	{
-		_id: 3,
+		//_id: 3,
 		title: "Riverdale",
 		station: "CW",
 		season: 1, // season am on right now
@@ -37,7 +37,7 @@ var newShows = [
 		status: "Upcoming",
 	},
 	{
-		_id:  4,
+		//_id:  4,
 		title: "The Middle",
 		station: "ABC",
 		season: 8, // season am on right now
@@ -45,7 +45,7 @@ var newShows = [
 		status: "Watching",
 	},
 	{
-		_id:  5,
+		//_id:  5,
 		title: "Dr. Ken",
 		station: "ABC",
 		season: 3, // season am on right now
@@ -53,7 +53,7 @@ var newShows = [
 		status: "Watching",
 	},
 	{
-		_id:  6,
+		//_id:  6,
 		title: "Community",
 		station: "NBC",
 		season: 6, // season am on right now
