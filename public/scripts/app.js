@@ -1,11 +1,12 @@
 console.log("Sanity Check: JS is working!");
 var template;
 var $showsList;
+var $portrait;
 var allShows = [];
 $(document).ready(function()
 {
 	$showsList = $('#ShowsTarget');
-
+	$portrait = $("#me");
 	// compile handlebars template
 	var source = $('#shows-template').html();
 	template = Handlebars.compile(source);
@@ -15,6 +16,13 @@ $(document).ready(function()
 	    url: '/api/shows',
 	    success: handleSuccess,
 	    error: handleError
+	});
+	$.ajax(
+	{
+		method: "GET",
+		url: '/api/profile',
+		success: portraitSuccess,
+		error: portraitError
 	});
 	$('#newShowForm').on('submit', function(e) 
 	{
@@ -63,6 +71,18 @@ function handleSuccess(json)
 function handleError(e) {
   console.log('uh oh');
   $('#showTarget').text('Failed to load shows, is the server working?');
+}
+
+function protraitSuccess(json)
+{
+	me = json;
+	console.log(json); // testing
+}
+
+function portraitError(err)
+{
+	console.log("Something wrong w/ pic");
+	$portrait.attr("src", "http://coloradopeakpolitics.com/wp-content/uploads/2015/08/doh.gif");
 }
 
 function newShowSuccess(json) {
