@@ -76,6 +76,7 @@ function handleError(e) {
 function portraitSuccess(json)
 {
 	me = json;
+	console.log(me.githubProfileImage);
 	$portrait.attr("src", me.githubProfileImage);
 }
 
