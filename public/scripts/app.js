@@ -73,7 +73,7 @@ function handleError(e) {
   $('#showTarget').text('Failed to load shows, is the server working?');
 }
 
-function protraitSuccess(json)
+function portraitSuccess(json)
 {
 	me = json;
 	console.log(json); // testing
