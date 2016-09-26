@@ -116,6 +116,7 @@ app.post('/api/shows', function create(req, res)
   newShow.save(function(err, savedShow) 
   {
   	if (err) { return console.log("show error: " + err);}
+  	else {console.log("Success!");}
     res.json(savedShow);
   });
 
