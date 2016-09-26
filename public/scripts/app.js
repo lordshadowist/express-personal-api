@@ -6,7 +6,7 @@ var allShows = [];
 $(document).ready(function()
 {
 	$showsList = $('#ShowsTarget');
-	$portrait = $("#me");
+	$portrait = $("#Me");
 	// compile handlebars template
 	var source = $('#shows-template').html();
 	template = Handlebars.compile(source);
