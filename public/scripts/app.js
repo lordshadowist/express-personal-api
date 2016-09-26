@@ -67,7 +67,7 @@ function handleError(e) {
 
 function newShowSuccess(json) {
   $('#newShowForm input').val('');
-  allShow.push(json);
+  allShows.push(json);
   render();
 }
 
