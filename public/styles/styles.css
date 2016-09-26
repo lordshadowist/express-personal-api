@@ -16,6 +16,11 @@ h2
 	text-align: center;
 }
 
+img
+{
+	align: center;
+}
+
 .number
 {
 	width: 25% !important;
