@@ -88,6 +88,7 @@ app.get('/api/shows', function index(req, res)
 		{
 			return console.log("index error: " + err);
 		}
+		console.log("I'm still Here!");
 		res.json(shows);
 	});
 });
