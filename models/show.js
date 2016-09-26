@@ -3,7 +3,7 @@ Schema = mongoose.Schema;
 
 var tvShowSchema = new Schema
 ({
-	_id: String,
+	//_id: Number,
 	title: String,
 	station: String,
 	season: Number, // season am on right now
